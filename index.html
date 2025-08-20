@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+
+    <style>
+        body,
+        html {
+            font-family: "Montserrat", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .hero {
+            background-color: #fadcdc;
+            max-width: 920px;
+            padding: 30px 30px;
+            border-radius: 25px;
+            margin: 50px auto;
+        }
+
+        .music {
+            padding: 30px;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+            color: #555;
+            border-radius: 25px;
+            background-color: #fff;
+        }
+
+
+        .track {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .music h3 {
+            color: #090439;
+            font-size: 24px;
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+
+        .track img {
+            width: 35px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .track div {
+            flex: 1;
+        }
+
+        .grid_el {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 50px;
+            text-align: center;
+        }
+
+
+        .avatar {
+            margin-bottom: 10px;
+        }
+
+        .avatar img {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            border-radius: 100px;
+            background-color: #f85f5f;
+        }
+
+
+
+
+        @media screen and (max-width: 992px) {
+            .grid_el {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .music {
+                margin: 0px 20px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .grid_el {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .sction_bg {
+                margin: 0px 30px;
+            }
+
+
+        }
+
+        @media screen and (max-width: 538px) {
+
+            .sction_bg {
+                margin: 0px 10px;
+            }
+
+            .hero {
+                padding: 20px 10px;
+            }
+
+            .Emotion_text h3 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+
+        .text_remove {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* 2 */
+
+        .grid_music {
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .Emotion_text h3 {
+            color: #090439;
+            font-size: 17px;
+            margin-bottom: 0;
+            padding: 4px 0px;
+        }
+
+
+
+
+        .grid_music .Emotion_text {
+            width: 100%;
+        }
+
+
+
+        .avatars {
+            margin-right: 15px;
+        }
+
+        .avatars img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 100px;
+            background-color: #f85f5f;
+        }
+
+        .Emotion_text .track {
+            margin-top: 10px;
+        }
+
+        samp {
+            vertical-align: middle;
+        }
+
+        .badge_idf {
+            background-color: #f85f5f;
+            color: #fff;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .emo_hero {
+            max-width: 1080px;
+        }
+
+        .flag_avt {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flag_avt .Emotion_text {
+            margin-left: 10px;
+        }
+
+        .flag_avt img {
+            width: 50px;
+        }
+
+        /* profile_emotion */
+        .grid_el_emo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 50px;
+            text-align: center;
+        }
+
+
+
+
+        .emo_avt img {
+            vertical-align: bottom;
+            width: 180px;
+            margin-right: 10px;
+        }
+
+        .grid_el_emo .grid_music {
+            padding-bottom: 0;
+        }
+
+
+        .grid_el_emo .Emotion_text {
+            width: 100%;
+        }
+
+
+        .grid_el_emo .Emotion_text h3 {
+            font-size: 20px;
+        }
+
+
+        .actio_emo {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 100px 1fr;
+            margin-bottom: 15px;
+        }
+
+
+        .actio_emo .track {
+            width: 100%;
+            margin-left: 10px;
+            margin-top: 0;
+        }
+
+        .grid_el_emo .Emotion_text h3 {
+            margin-bottom: 10px;
+
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .grid_el_emo {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .grid_music {
+                display: flex;
+                align-items: center;
+                padding: 20px;
+                flex-direction: column;
+            }
+
+            .emo_avt img {
+                margin-bottom: 10px;
+            }
+
+
+        }
+
+
+        /* 04. Language - Mood */
+
+        .Friendly_icon {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .Friendly_icon .flag_avts img {
+            width: 30px;
+        }
+
+        .Emotion_texts h3 {
+            font-size: 13px;
+            margin-left: 10px;
+        }
+
+        .flag_avts {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Scenario */
+
+        .to_scen img {
+            width: 100%;
+        }
+
+        .music_scen {
+            background-color: #fff;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+            color: #555;
+            border-radius: 25px;
+        }
+
+        .Approchable {
+            padding: 30px;
+        }
+
+        .Approchable h3 {
+            color: #090439;
+            font-size: 24px;
+            margin-bottom: 0;
+            font-weight: 700;
+        }
+    </style>
+
+    <script src="https://unpkg.com/wavesurfer.js@7"></script>
+</head>
+
+<body>
+
+    <section class="sction_bg">
+        <div class="hero">
+            <div class="text_remove">
+                <h2>06. Personality</h2>
+            </div>
+            <div class="grid_el">
+                <div class="music">
+                    <div class="avatar">
+                        <img src="./media/Picture01.png" alt="">
+                    </div>
+                    <h3>Ava Approchable</h3>
+                    <div class="track" data-audio="aitalker_vocies/personality/approachable/Ava_approchable.mp3">
+                        <img src="./media/play.png" alt="" class="playBtn">
+                        <div class="waveform"></div>
+                    </div>
+                </div>
+
+                <div class="music">
+                    <div class="avatar">
+                        <img src="./media/Picture03.png" alt="">
+                    </div>
+                    <h3>Daniel Authentic</h3>
+                    <div class="track" data-audio="aitalker_vocies/personality/Authentic/Daniel_authentic.mp3">
+                        <img src="./media/play.png" alt="" class="playBtn">
+                        <div class="waveform"></div>
+                    </div>
+                </div>
+
+                <div class="music">
+                    <div class="avatar">
+                        <img src="./media/Picture02.png" alt="">
+                    </div>
+                    <h3>Charlotte Bright</h3>
+                    <div class="track" data-audio="aitalker_vocies/personality/Bright/Charlotte_bright.mp3">
+                        <img src="./media/play.png" alt="" class="playBtn">
+                        <div class="waveform"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- emotion -->
+
+        <div class="hero emo_hero">
+            <div class="text_remove">
+                <h2>06.Perfect Emotion</h2>
+            </div>
+            <div class="grid_el">
+                <div class="music grid_music">
+                    <div class="avatars">
+                        <img src="./media/emo1.png" alt="">
+                    </div>
+                    <div class="Emotion_text">
+                        <h3><span>Ava</span> <span class="badge_idf">😁 &nbsp;cheerful</span></h3>
+                        <div class="track" data-audio="aitalker_vocies/Sound/Ava/cheerful_ava.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music grid_music">
+                    <div class="avatars">
+                        <img src="./media/emo2.png" alt="">
+                    </div>
+                    <div class="Emotion_text">
+                        <h3><span>Chloe</span><span class="badge_idf">😤 &nbsp; Angry</span></h3>
+                        <div class="track" data-audio="aitalker_vocies/Sound/Chloe/angry_Chloe.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music grid_music">
+                    <div class="avatars">
+                        <img src="./media/emo3.png" alt="">
+                    </div>
+                    <div class="Emotion_text">
+                        <h3><span>Daniel</span> <span class="badge_idf">😔 &nbsp;Sad</span></h3>
+                        <div class="track" data-audio="aitalker_vocies/Sound/Daniel/sad_Daniel.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- language -->
+
+        <div class="hero emo_hero">
+            <div class="text_remove">
+                <h2>02.Languages </h2>
+            </div>
+            <div class="grid_el">
+                <div class="music ">
+                    <div class="flag_avt">
+                        <img src="./media/Flag01.png" alt="">
+                        <div class="Emotion_text">
+                            <h3>US English</h3>
+                        </div>
+                    </div>
+
+
+                    <div class="track" data-audio="aitalker_vocies/Sound/Ava/cheerful_ava.mp3">
+                        <img src="./media/play.png" alt="" class="playBtn">
+                        <div class="waveform"></div>
+
+                    </div>
+                </div>
+
+                <div class="music ">
+                    <div class="flag_avt">
+                        <img src="./media/Flag02.png" alt="">
+                        <div class="Emotion_text">
+                            <h3>UK English</h3>
+                        </div>
+                    </div>
+
+
+                    <div class="track" data-audio="aitalker_vocies/Sound/Chloe/angry_Chloe.mp3">
+                        <img src="./media/play.png" alt="" class="playBtn">
+                        <div class="waveform"></div>
+                    </div>
+
+                </div>
+
+                <div class="music ">
+                    <div class="flag_avt">
+                        <img src="./media/Flag03.png" alt="">
+                        <div class="Emotion_text">
+                            <h3>Spanish</h3>
+                        </div>
+                    </div>
+
+                    <div class="track" data-audio="aitalker_vocies/Sound/Daniel/sad_Daniel.mp3">
+                        <img src="./media/play.png" alt="" class="playBtn">
+                        <div class="waveform"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- /* profile_emotion */ -->
+
+
+        <div class="hero emo_hero">
+            <div class="text_remove">
+                <h2>03. Profile Emotion</h2>
+            </div>
+            <div class="grid_el_emo">
+                <div class="music grid_music">
+                    <div class="emo_avt">
+                        <img src="./media/pro_emo.png" alt="">
+
+                    </div>
+
+                    <div class="Emotion_text">
+                        <h3>Olivia</h3>
+
+                        <div class="actio_emo">
+                            <span class="badge_idf">😔 &nbsp;Sad</span>
+                            <div class="track" data-audio="aitalker_vocies/Sound/Olivia/sad_Olivia.mp3">
+                                <img src="./media/play.png" alt="" class="playBtn">
+                                <div class="waveform"></div>
+                            </div>
+
+                        </div>
+
+                        <div class="actio_emo">
+                            <span class="badge_idf">😠 &nbsp;Angry</span>
+                            <div class="track" data-audio="aitalker_vocies/Sound/Olivia/angry_Olivia.mp3">
+                                <img src="./media/play.png" alt="" class="playBtn">
+                                <div class="waveform"></div>
+                            </div>
+
+                        </div>
+                        <div class="actio_emo">
+                            <span class="badge_idf">😆 &nbsp;Excited</span>
+                            <div class="track" data-audio="aitalker_vocies/Sound/Olivia/Excited_Olivia.mp3">
+                                <img src="./media/play.png" alt="" class="playBtn">
+                                <div class="waveform"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="music grid_music">
+                    <div class="emo_avt">
+                        <img src="./media/emo_pro2.png" alt="">
+
+                    </div>
+
+                    <div class="Emotion_text">
+                        <h3>Mia</h3>
+
+                        <div class="actio_emo">
+                            <span class="badge_idf">😔 &nbsp;Sad</span>
+                            <div class="track" data-audio="aitalker_vocies/Sound/Mia/cheerful_Mia.mp3">
+                                <img src="./media/play.png" alt="" class="playBtn">
+                                <div class="waveform"></div>
+                            </div>
+
+                        </div>
+                        <div class="actio_emo">
+                            <span class="badge_idf">😠 &nbsp;Angry</span>
+                            <div class="track" data-audio="aitalker_vocies/Sound/Mia/angry_Mia.mp3">
+                                <img src="./media/play.png" alt="" class="playBtn">
+                                <div class="waveform"></div>
+                            </div>
+
+                        </div>
+                        <div class="actio_emo">
+                            <span class="badge_idf">😆 &nbsp;Excited</span>
+                            <div class="track" data-audio="aitalker_vocies/Sound/Mia/Excited_Mia.mp3">
+                                <img src="./media/play.png" alt="" class="playBtn">
+                                <div class="waveform"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- 04. Language - Mood -->
+
+        <div class="hero emo_hero">
+            <div class="text_remove">
+                <h2>😁 &nbsp;Friendly</h2>
+            </div>
+            <div class="grid_el">
+                <div class="music grid_music">
+                    <div class="avatars">
+                        <img src="./media/emo1.png" alt="">
+                    </div>
+                    <div class="Emotion_text">
+                        <div class="Friendly_icon">
+                            <h3>Ava</h3>
+                            <div class="flag_avts">
+                                <img src="./media/Flag01.png" alt="">
+                                <div class="Emotion_texts">
+                                    <h3>US English</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track" data-audio="aitalker_vocies/Sound/Ava/cheerful_ava.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music grid_music">
+                    <div class="avatars">
+                        <img src="./media/emo2.png" alt="">
+                    </div>
+                    <div class="Emotion_text">
+                        <div class="Friendly_icon">
+                            <h3>Ava</h3>
+                            <div class="flag_avts">
+                                <img src="./media/Flag01.png" alt="">
+                                <div class="Emotion_texts">
+                                    <h3>US English</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track" data-audio="aitalker_vocies/Sound/Chloe/angry_Chloe.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music grid_music">
+                    <div class="avatars">
+                        <img src="./media/emo3.png" alt="">
+                    </div>
+                    <div class="Emotion_text">
+                        <div class="Friendly_icon">
+                            <h3>Ava</h3>
+                            <div class="flag_avts">
+                                <img src="./media/Flag01.png" alt="">
+                                <div class="Emotion_texts">
+                                    <h3>US English</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="track" data-audio="aitalker_vocies/Sound/Daniel/sad_Daniel.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- 05. Scenario -->
+        <div class="hero">
+            <div class="text_remove">
+                <h2>06. Scenario</h2>
+            </div>
+            <div class="grid_el">
+                <div class="music_scen">
+                    <div class="to_scen">
+                        <img src="./media/scen1.png" alt="">
+                    </div>
+                    <div class="Approchable">
+                        <h3>Ava Approchable</h3>
+                        <div class="track" data-audio="aitalker_vocies/personality/approachable/Ava_approchable.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music_scen">
+                    <div class="to_scen">
+                        <img src="./media/scen2.png" alt="">
+                    </div>
+                    <div class="Approchable">
+                        <h3>Daniel Authentic</h3>
+                        <div class="track" data-audio="aitalker_vocies/personality/Authentic/Daniel_authentic.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music_scen">
+                    <div class="to_scen">
+                        <img src="./media/scen3.png" alt="">
+                    </div>
+                    <div class="Approchable">
+                        <h3>Charlotte Bright</h3>
+                        <div class="track" data-audio="aitalker_vocies/personality/Bright/Charlotte_bright.mp3">
+                            <img src="./media/play.png" alt="" class="playBtn">
+                            <div class="waveform"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+        const tracks = document.querySelectorAll('.track');
+
+        function generateDummyPeaks(length = 200) {
+            return Array.from({ length }, () => Math.random() * 2 - 1);
+        }
+
+        tracks.forEach((track) => {
+            const playBtn = track.querySelector('.playBtn');
+            const waveformContainer = track.querySelector('.waveform');
+            const audioUrl = track.dataset.audio;
+
+            const wavesurfer = WaveSurfer.create({
+                container: waveformContainer,
+                waveColor: '#d0d0d0',
+                progressColor: '#474747',
+                barWidth: 4,
+                barGap: 1,
+                barRadius: 10,
+                responsive: true,
+                height: 40,
+            });
+
+            // Load dummy waveform on page load
+            const dummyPeaks = generateDummyPeaks();
+            wavesurfer.load('', dummyPeaks, 1);
+
+            let isLoaded = false;
+
+            playBtn.addEventListener('click', () => {
+                if (!isLoaded) {
+                    wavesurfer.load(audioUrl);
+                    isLoaded = true;
+
+                    wavesurfer.on('ready', () => {
+                        wavesurfer.play();
+                        playBtn.src = "media/pause.png";
+                    });
+                } else {
+                    wavesurfer.playPause();
+                    playBtn.src = wavesurfer.isPlaying() ? "media/pause.png" : "media/play.png";
+                }
+            });
+
+            wavesurfer.on('finish', () => {
+                playBtn.src = "media/play.png";
+                wavesurfer.stop();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
